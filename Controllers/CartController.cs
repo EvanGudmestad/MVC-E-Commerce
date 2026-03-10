@@ -46,7 +46,7 @@ namespace OneToManyDemo.Controllers
                 {
                     ProductId = product.ProductId,
                     ProductName = product.Name,
-                    Price = product.Price,
+                    Price = product.Price ?? 0m,
                     Quantity = quantity,
                     ImageUrl = product.ImageUrl
                 });

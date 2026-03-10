@@ -1,6 +1,7 @@
+using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OneToManyDemo.Models;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,10 @@ builder.Services.AddSession(options =>
 
 
 builder.Services.AddControllersWithViews();
+
+// This automatically scans your project and registers all validators it finds
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
 var app = builder.Build();
 app.UseStaticFiles();
 app.UseSession(); // Enable Session State middleware
